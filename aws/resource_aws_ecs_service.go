@@ -385,7 +385,6 @@ func resourceAwsEcsServiceCreate(d *schema.ResourceData, meta interface{}) error
 	schedulingStrategy := d.Get("scheduling_strategy").(string)
 
 	input := ecs.CreateServiceInput{
-		ClientToken:          aws.String(resource.UniqueId()),
 		DeploymentController: expandEcsDeploymentController(d.Get("deployment_controller").([]interface{})),
 		SchedulingStrategy:   aws.String(schedulingStrategy),
 		ServiceName:          aws.String(d.Get("name").(string)),
